@@ -26,7 +26,7 @@ function ClientModal({ onClose, onSaved }: { onClose: () => void; onSaved: () =>
     if (!form.name.trim()) { setError('Le nom est obligatoire.'); return; }
     setLoading(true);
     try {
-      const res = await fetch('http://localhost:3001/api/clients', {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/clients`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(form)
@@ -93,7 +93,7 @@ export default function Clients() {
 
   const loadClients = () => {
     setLoading(true);
-    fetch('http://localhost:3001/api/clients')
+    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/clients`)
       .then(r => r.json())
       .then(data => setClients(Array.isArray(data) ? data : []))
       .catch(console.error)

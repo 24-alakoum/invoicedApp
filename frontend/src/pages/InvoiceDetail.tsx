@@ -54,7 +54,7 @@ export default function InvoiceDetail() {
 
   useEffect(() => {
     if (!id) return;
-    fetch(`http://localhost:3001/api/invoices/${id}`)
+    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/invoices/${id}`)
       .then(r => r.json())
       .then(data => setInvoice(data))
       .catch(console.error)
@@ -65,7 +65,7 @@ export default function InvoiceDetail() {
     if (!invoice) return;
     setMarking(true);
     try {
-      const res = await fetch(`http://localhost:3001/api/invoices/${invoice.id}/status`, {
+      const res = await fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/invoices/${invoice.id}/status`, {
         method: 'PATCH',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ status })

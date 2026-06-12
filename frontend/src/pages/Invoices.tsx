@@ -22,7 +22,7 @@ export default function Invoices() {
 
   useEffect(() => {
     setLoading(true);
-    fetch('http://localhost:3001/api/invoices')
+    fetch(`${import.meta.env.VITE_API_URL || 'http://localhost:3001/api'}/invoices`)
       .then(res => res.json())
       .then(data => setInvoices(data))
       .catch(console.error)
