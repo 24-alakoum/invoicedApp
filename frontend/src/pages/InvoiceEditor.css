@@ -1,0 +1,40 @@
+.invoice-editor-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 2rem;
+  height: 100%;
+}
+
+.editor-form-col {
+  display: flex;
+  flex-direction: column;
+}
+
+.editor-preview-col {
+  position: relative;
+}
+
+.preview-sticky-container {
+  position: sticky;
+  top: 0;
+}
+
+.invoice-paper {
+  background-color: #fff;
+  border-radius: var(--radius-md);
+  padding: 2rem 1.5rem;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05), 0 0 0 1px rgba(0, 0, 0, 0.05);
+  min-height: 210mm; /* A5 Height */
+  max-width: 148mm;  /* A5 Width */
+  margin: 0 auto;
+  transform-origin: top center;
+  zoom: 0.95; 
+}
+
+.paper-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  border-bottom: 2px solid var(--accent-primary);
+  padding-bottom: 1.5rem;
+}
